@@ -48,7 +48,7 @@ services:
     environment:
       - PORT=3001
       - NATS_SERVERS=nats://nats-server:4222
-      - DATABASE_URL=postgres://postgres:123456@products-db:5432/productsdb
+      - DATABASE_URL=${PRODUCTS_DATABASE_URL}
     networks:
       - microservices_network
   orders-db:
@@ -76,7 +76,7 @@ services:
     environment:
       - PORT=3002
       - NATS_SERVERS=nats://nats-server:4222
-      - DATABASE_URL=postgres://postgres:123456@orders-db:5432/ordersdb
+      - DATABASE_URL=${ORDERS_DATABASE_URL}
     networks:
       - microservices_network
 networks:
